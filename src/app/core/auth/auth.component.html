@@ -1,0 +1,93 @@
+<div class="container" [ngSwitch]="step">
+
+  <mat-card *ngSwitchCase="'auth'">
+    <mat-card-header fxLayout="row" fxLayoutAlign="center">
+      <mat-card-title>
+        <h1 class="title">Book Samaritan</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content fxLayout="column" fxLayoutAlign="center">
+      <button mat-raised-button color="primary" (click)="step = 'signup'">Get Started</button>
+      <p style="text-align:center;">Already using Book Samaritan?</p>
+      <button mat-raised-button (click)="step = 'signin'">Sign In</button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngSwitchCase="'signin'">
+    <form name="form" class="form" [formGroup]="signInForm" (ngSubmit)="onSignIn(signInForm.value)">
+      <mat-card-header>
+        <mat-card-title>
+          <h2>{{ 'AUTH.SIGN_IN' | translate }}</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <div class="progress-bar-container">
+        <mat-progress-bar *ngIf="progress" mode="indeterminate"></mat-progress-bar>
+      </div>
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'AUTH.EMAIL' | translate }}</mat-label>
+          <input matInput #email type="email" name="email" required [formControlName]="'email'">
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="signInForm.controls['email'].hasError('required')">{{ 'AUTH.EMAIL_IS_REQUIRED' | translate }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width" hintLabel="Min 8 characters">
+          <mat-label>{{ 'AUTH.PASSWORD' | translate }}</mat-label>
+          <input matInput #pass type="password" name="password" required [formControlName]="'password'">
+          <mat-icon matSuffix>visibility_off</mat-icon>
+          <mat-hint align="end">{{ (8 - pass.value?.length || 0) > 0 ? (8 - pass.value?.length || 0) : '&#10004;' }}</mat-hint>
+          <mat-error *ngIf="signInForm.controls['password'].hasError('required')">{{ 'AUTH.PASSWORD_IS_REQUIRED' | translate }}</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions fxLayout="row" fxLayoutAlign="end">
+        <button mat-button type="button" (click)="step = 'auth'">{{ 'AUTH.CANCEL' | translate }}</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!signInForm.valid" style="margin-left:8px;">{{ 'AUTH.CONTINUE' | translate }}</button>
+      </mat-card-actions>
+      <!--<mat-card-footer class="mat-typography" fxLayout="row" fxLayoutAlign="end" style="padding:8px;margin:0 -16px -16px -16px !important;">-->
+      <!--<a href="termsofservice.html" target="_blank">Terms of Service</a>-->
+      <!--<a href="privacypolicy.html" target="_blank">Privacy Policy</a>-->
+      <!--</mat-card-footer>-->
+    </form>
+  </mat-card>
+
+  <mat-card *ngSwitchCase="'signup'">
+    <form name="form" class="form" [formGroup]="signUpForm" (ngSubmit)="onSignUp(signUpForm.value)">
+      <mat-card-header>
+        <mat-card-title>
+          <h2>{{ 'AUTH.SIGN_UP' | translate }}</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <div class="progress-bar-container">
+        <mat-progress-bar *ngIf="progress" mode="indeterminate"></mat-progress-bar>
+      </div>
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'AUTH.EMAIL' | translate }}</mat-label>
+          <input matInput #email type="email" name="email" required [formControlName]="'email'">
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="signUpForm.controls['email'].hasError('required')">{{ 'AUTH.EMAIL_IS_REQUIRED' | translate }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'AUTH.USERNAME' | translate }}</mat-label>
+          <input matInput #username type="text" name="username" required [formControlName]="'username'">
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="signUpForm.controls['username'].hasError('required')">{{ 'AUTH.USERNAME_IS_REQUIRED' | translate }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width" hintLabel="Min 8 characters">
+          <mat-label>{{ 'AUTH.PASSWORD' | translate }}</mat-label>
+          <input matInput #pass type="password" name="password" required [formControlName]="'password'">
+          <mat-icon matSuffix>visibility_off</mat-icon>
+          <mat-hint align="end">{{ (8 - pass.value?.length || 0) > 0 ? (8 - pass.value?.length || 0) : '&#10004;' }}</mat-hint>
+          <mat-error *ngIf="signUpForm.controls['password'].hasError('required')">{{ 'AUTH.PASSWORD_IS_REQUIRED' | translate }}</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions fxLayout="row" fxLayoutAlign="end">
+        <button mat-button type="button" (click)="step = 'auth'">{{ 'AUTH.CANCEL' | translate }}</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!signInForm.valid" style="margin-left:8px;">{{ 'AUTH.CONTINUE' | translate }}</button>
+      </mat-card-actions>
+      <!--<mat-card-footer class="mat-typography" fxLayout="row" fxLayoutAlign="end">-->
+        <!--<a href="termsofservice.html" target="_blank">Terms of Service</a>-->
+        <!--<a href="privacypolicy.html" target="_blank" style="margin-left:8px;">Privacy Policy</a>-->
+      <!--</mat-card-footer>-->
+    </form>
+  </mat-card>
+</div>

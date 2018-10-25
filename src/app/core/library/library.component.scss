@@ -1,0 +1,31 @@
+.books-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  li {
+    display: inline-block;
+    list-style-type: none;
+  }
+}
+
+//.book-container {
+//  width: 150px;
+//}
+.book-thumbnail {
+  flex-shrink: 0 !important;
+  width: 64px !important;
+  height: 64px !important;
+  border-radius: 0 !important;
+  object-fit: cover !important;
+}
+
+.book-container {
+  margin-bottom: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  h4, p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

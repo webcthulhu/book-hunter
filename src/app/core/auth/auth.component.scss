@@ -1,0 +1,19 @@
+@import '../../../theme.scss';
+
+.container {
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: 'Cabin Sketch', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.progress-bar-container {
+  margin-bottom: 24px;
+  margin-left: -24px;
+  margin-right: -24px;
+}

@@ -1,0 +1,19 @@
+@import '../../../theme.scss';
+
+.profile-avatar {
+  height: 128px;
+  width: 128px;
+  flex-shrink: 0;
+  padding: 5px;
+  //border: 2px solid $bs-primary;
+}
+.avatar-image {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+.profile-text {
+  color: #000000 !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+}

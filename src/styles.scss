@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Cabin Sketch';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/CabinSketch-Thumbnail.ttf');
+}
+
+.full-width {
+  width: 100%;
+}
+.padding {
+  padding: 24px 16px;
+}
+.container {
+  padding: 8px 16px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+.capitalize {
+  text-transform: capitalize;
+}

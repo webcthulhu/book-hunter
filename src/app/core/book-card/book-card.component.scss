@@ -1,0 +1,56 @@
+@import '../../../theme.scss';
+
+.card {
+  display: grid;
+  width: 100%;
+  height: 133px;
+  grid-template-columns: 100px auto;
+  grid-template-rows: auto 20px 40px;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  grid-template-areas:
+    "cover title"
+    "cover author"
+    "cover actions";
+  justify-items: stretch;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 5px;
+  &.dense {
+    height: 100px;
+    grid-template-columns: 70px auto;
+    .cover {
+      object-fit: contain;
+    }
+  }
+  .cover {
+    grid-area: cover;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  .title {
+    grid-area: title;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 700;
+  }
+  .author {
+    grid-area: author;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .actions {
+    grid-area: actions;
+    overflow: hidden;
+    .red {
+      color: $bs-red;
+    }
+    .green {
+      color: $bs-green;
+    }
+  }
+}

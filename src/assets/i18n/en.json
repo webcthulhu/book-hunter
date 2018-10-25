@@ -1,0 +1,15 @@
+{
+  "HELLO": "Hello, World!",
+  "AUTH": {
+    "CANCEL": "Cancel",
+    "CONTINUE": "Continue",
+    "EMAIL": "Email",
+    "EMAIL_IS_REQUIRED": "Email is required",
+    "PASSWORD": "Password",
+    "PASSWORD_IS_REQUIRED": "Password is required",
+    "SIGN_IN": "Sign in",
+    "SIGN_UP": "Sign up",
+    "USERNAME": "Username",
+    "USERNAME_IS_REQUIRED": "Username is required"
+  }
+}

@@ -1,0 +1,17 @@
+<div class="card mat-elevation-z4 mat-typography" [ngClass]="{'dense' : dense}">
+  <img class="cover" [src]="cover">
+  <h3 class="title">{{ title }}</h3>
+  <p class="author">By: {{ author }}</p>
+  <div class="actions">
+    <button mat-icon-button color="primary" [disabled]="true" (click)="onInfoClick()">
+      <mat-icon aria-label="Description">info</mat-icon>
+    </button>
+    <span fxFlex></span>
+    <button mat-icon-button class="green" (click)="onAddClick()" *ngIf="showAdd">
+      <mat-icon aria-label="Add">add_circle_outline</mat-icon>
+    </button>
+    <button mat-icon-button class="red" (click)="onRemoveClick()" *ngIf="showRemove">
+      <mat-icon aria-label="Remove">delete</mat-icon>
+    </button>
+  </div>
+</div>

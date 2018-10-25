@@ -1,0 +1,15 @@
+<div class="container">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Search for your book</mat-label>
+    <input matInput type="text" name="search" [(ngModel)]="search" (keyup)="onSearchChange($event)" />
+    <button mat-button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="onCleanClick()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <h4 mat-subheader *ngIf="searchedBooks.length">Books founded: {{ searchedTotal }}</h4>
+  <div fxLayout="column" fxLayoutGap="10px">
+    <app-book-card *ngFor="let book of searchedBooks" [book]="book" [add]="true" [dense]="true" (add)="onAddClick(book)"></app-book-card>
+  </div>
+</div>
+

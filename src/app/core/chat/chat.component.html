@@ -1,0 +1,30 @@
+<div style="position:absolute;top:0;left:0;right:0;bottom:0;">
+  <mat-toolbar color="accent">
+    <!--<button mat-icon-button *ngFor="let user of users;" (click)="createConversation(user.id)">-->
+      <!--<mat-icon aria-label="Toggle menu.">menu</mat-icon>-->
+    <!--</button>-->
+  </mat-toolbar>
+  <form name="form" [formGroup]="form" (ngSubmit)="onFormSubmit(form.value); form.reset()">
+    <mat-form-field appearance="outline" class="full-width">
+      <input matInput #text type="text" placeholder="Type your message..." [formControlName]="'text'" />
+      <button mat-button matSuffix mat-icon-button aria-label="Send" type="submit" [disabled]="!form.valid">
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+  <!--<div class="messages-list">-->
+  <!--<div *ngFor="let message of messages">-->
+  <!--{{ message.text }}-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<ul *ngFor="let post of posts | async">-->
+    <!--<li>-->
+      <!--<strong>-->
+        <!--{{ post.title }}-->
+      <!--</strong>-->
+      <!--<br>-->
+      <!--{{ post.content }}-->
+    <!--</li>-->
+  <!--</ul>-->
+
+</div>

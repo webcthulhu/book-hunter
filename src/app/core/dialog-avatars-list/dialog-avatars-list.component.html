@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Choose your Avatar</h2>
+<mat-dialog-content>
+  <mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let avatar of avatars">
+      <img [draggable]="false" [src]="'assets/avatars/' + avatar" class="image" (click)="onImageClick(avatar)">
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-dialog-content>
